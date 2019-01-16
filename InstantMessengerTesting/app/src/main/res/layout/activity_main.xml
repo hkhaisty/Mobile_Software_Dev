@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_orange_light"
+        android:background="@drawable/background"
         tools:context=".MainActivity"
 >
     <!--REGISTRATION SCREEN-->
@@ -14,10 +14,10 @@
     <EditText
             android:id="@+id/usernameRegistration_edittext"
             android:inputType="textPersonName"
-            android:layout_width="0dp"
+            android:layout_width="321dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:background="@android:color/white" android:layout_marginEnd="32dp"
+            android:background="@drawable/textboxroundedcorners"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="32dp"
             android:layout_marginStart="32dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="32dp"
@@ -25,7 +25,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:hint="Username"
             android:paddingLeft="16dp"
-    />
+
+            app:layout_constraintHorizontal_bias="0.0"/>
 
     <!--Email address registration edit text-->
     <EditText
@@ -34,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:background="@android:color/white"
+            android:background="@drawable/textboxroundedcorners"
             android:hint="Email" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/usernameRegistration_edittext"
             app:layout_constraintEnd_toEndOf="@+id/usernameRegistration_edittext"
@@ -49,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:background="@android:color/white" android:hint="Password" android:layout_marginTop="8dp"
+            android:background="@drawable/textboxroundedcorners" android:hint="Password" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/emailRegistration_edittext"
             app:layout_constraintEnd_toEndOf="@+id/emailRegistration_edittext"
             app:layout_constraintStart_toStartOf="@+id/emailRegistration_edittext"
