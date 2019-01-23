@@ -38,7 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         //If email or password is email check to avoid crash.
         if(email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "ERROR: Missing entry for email/password.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Missing entry for email/password.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        else if(password.length < 6) {
+            Toast.makeText(this, "Invalid password. Password must contain at least 6 characters.", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -55,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         }
             .addOnFailureListener{
                 Log.d("MainActivity", "Failed to register user. ${it.message}")
+                Toast.makeText(this, "Failed to register user. ${it.message}", Toast.LENGTH_SHORT).show()
             }
         //END: Firebase Authentication
     }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -17,6 +18,17 @@ class LoginActivity : AppCompatActivity() {
 
             Log.d("LoginActivity", "Email: " + email);
             Log.d("LoginActivity", "Password: + $password");
+
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    if(it.isSuccessful) {
+                        Log.d("LoginActivity", "Login Successful: ${it.result?.user?.uid}") //What does ?. mean?
+                    }
+                    else return@addOnCompleteListener
+                }
+                .addOnFailureListener{
+                    Log.d("LoginActivity", "Failed to login. ${it.message}")
+                }
         }
 
         donthaveaccountLogin_textview.setOnClickListener{
