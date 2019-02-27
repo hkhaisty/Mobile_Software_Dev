@@ -13,11 +13,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         loginLogin_button.setOnClickListener{
-            val email = emailLogin_edittext.text.toString();
-            val password = passwordLogin_edittext.text.toString();
+            val email = emailLogin_edittext.text.toString()
+            val password = passwordLogin_edittext.text.toString()
 
-            Log.d("LoginActivity", "Email: " + email);
-            Log.d("LoginActivity", "Password: + $password");
+            Log.d("LoginActivity", "Email: " + email)
+            Log.d("LoginActivity", "Password: + $password")
 
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
