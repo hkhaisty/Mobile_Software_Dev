@@ -34,6 +34,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.6' //Added from Firebase
     implementation 'com.google.firebase:firebase-auth:16.1.0' //Firebase auth SDK
 
+    implementation 'com.google.firebase:firebase-storage:16.0.5' //Firebase storage SDK
+    implementation 'com.google.firebase:firebase-database:16.0.5' //Firebase database SDK
+
 
 }
 apply plugin: 'com.google.gms.google-services'//Added from Firebase
