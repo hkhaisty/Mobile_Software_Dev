@@ -21,7 +21,7 @@
     <TextView
             android:text="cmail"
             android:textSize="80dp"
-            android:fontFamily="@font/NORTHEN"
+            android:fontFamily="@font/northen"
             android:textColor="@android:color/white"
             android:layout_width="207dp"
             android:layout_height="90dp"
@@ -33,7 +33,7 @@
             app:layout_constraintVertical_bias="0.019"/>
     <TextView
             android:text="safe chat for students"
-            android:fontFamily="@font/NORTHEN"
+            android:fontFamily="@font/northen"
             android:textColor="@android:color/white"
             android:textSize="30dp"
             android:layout_width="332dp"
