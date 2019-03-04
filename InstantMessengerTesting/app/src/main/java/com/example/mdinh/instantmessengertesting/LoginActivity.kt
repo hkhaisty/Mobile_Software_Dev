@@ -17,6 +17,9 @@ class LoginActivity : AppCompatActivity() {
 
             Log.d("LoginActivity", "Email: " + email);
             Log.d("LoginActivity", "Password: + $password");
+
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
 
         donthaveaccountLogin_textview.setOnClickListener{
