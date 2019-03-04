@@ -150,6 +150,11 @@ class RegistrationActivity : AppCompatActivity() {
         reference.setValue(user_account)
             .addOnSuccessListener {
                 Log.d("RegistrationActivity", "Saved user account to Firebase database")
+
+                val intent = Intent(this, RecentMessagesActivity::class.java)
+                //The statement below prevents the user from using the back button to return to registration screen
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
             .addOnFailureListener {
                 Log.d("RegistrationActivity", "Failed to save user account to Firebase database")
