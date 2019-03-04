@@ -9,6 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".GroupChatActivity">
         </activity>
         <activity android:name=".FriendsListActivity">
@@ -22,6 +23,10 @@
         <activity android:name=".ProfileActivity">
         </activity>
         <activity android:name=".MainActivity">
+=======
+
+        <activity android:name=".RegistrationActivity">
+>>>>>>> 7fb1d61f87f19204818affc1b1c86971f00cf714
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
