@@ -16,13 +16,6 @@ class LoginActivity : AppCompatActivity() {
             val email = emailLogin_edittext.text.toString()
             val password = passwordLogin_edittext.text.toString()
 
-<<<<<<< HEAD
-            Log.d("LoginActivity", "Email: " + email);
-            Log.d("LoginActivity", "Password: + $password");
-
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-=======
             Log.d("LoginActivity", "Email: " + email)
             Log.d("LoginActivity", "Password: + $password")
 
@@ -36,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
                 .addOnFailureListener{
                     Log.d("LoginActivity", "Failed to login. ${it.message}")
                 }
->>>>>>> 7fb1d61f87f19204818affc1b1c86971f00cf714
         }
 
         donthaveaccountLogin_textview.setOnClickListener{
