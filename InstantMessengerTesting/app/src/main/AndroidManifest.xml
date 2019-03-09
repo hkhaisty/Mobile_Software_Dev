@@ -9,29 +9,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".GroupChatActivity">
-        </activity>
-        <activity android:name=".FriendsListActivity">
-        </activity>
-        <activity android:name=".ChatActivity">
-        </activity>
-        <activity android:name=".ScanQRActivity">
-        </activity>
-        <activity android:name=".MyQRActivity">
-        </activity>
-        <activity android:name=".ProfileActivity">
-        </activity>
-        <activity android:name=".MainActivity">
-=======
+            <activity android:name=".GroupChatActivity"/>
+            <activity android:name=".FriendsListActivity"/>
+            <activity android:name=".ChatActivity"/>
+            <activity android:name=".ScanQRActivity"/>
+            <activity android:name=".MyQRActivity"/>
+            <activity android:name=".ProfileActivity"/>
+            <activity android:name=".RegistrationActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN"/>
 
-        <activity android:name=".RegistrationActivity">
->>>>>>> 7fb1d61f87f19204818affc1b1c86971f00cf714
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
