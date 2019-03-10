@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_registration.*
 import android.provider.MediaStore
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 //Registration screen
@@ -163,7 +166,8 @@ class RegistrationActivity : AppCompatActivity() {
     //Changes that hasn't been uploaded to Git as of 2/27
 }
 
-//Changes that hasn't been uploaded to Git as of 2/27
 //User account class
-class UserAccount(val user_id: String, val username: String, val profileImageUrl: String)
-//Changes that hasn't been uploaded to Git as of 2/27
+@Parcelize
+class UserAccount(val user_id: String, val username: String, val profileImageUrl: String) : Parcelable {
+    constructor() : this("", "", "")
+}
