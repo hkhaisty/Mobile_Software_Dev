@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.mdinh.instantmessengertesting">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -9,7 +17,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
+        <activity android:name=".ScanQRCodeActivity">
+        </activity>
+        <activity android:name=".QRHomeActivity">
+        </activity>
         <activity android:name=".RecentMessagesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,19 +28,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".NewMessageActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".RecentMessagesActivity"/>
-        </activity>
-        <!--CHANGES HAS NOT BEEN TRANSFERRED AS OF 3/7-->
+        </activity> <!-- CHANGES HAS NOT BEEN TRANSFERRED AS OF 3/7 -->
         <activity android:name=".ChatLogActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".RecentMessagesActivity"/>
-        </activity>
-        <!--CHANGES HAS NOT BEEN TRANSFERRED AS OF 3/7-->
+        </activity> <!-- CHANGES HAS NOT BEEN TRANSFERRED AS OF 3/7 -->
         <activity android:name=".RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -40,6 +48,9 @@
         <activity android:name=".LoginActivity">
         </activity>
 
+        <meta-data
+                android:name="com.google.android.gms.vision.DEPENDENCIES"
+                android:value="barcode"/>
     </application>
 
 </manifest>

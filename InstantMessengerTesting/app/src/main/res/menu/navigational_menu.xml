@@ -6,6 +6,10 @@
           android:title="New message"
           app:showAsAction="ifRoom"/>
 
+    <item android:id="@+id/clickQRCode"
+          android:title="QR Code Home"
+          app:showAsAction="ifRoom"/>
+
     <item android:id="@+id/signout_menu"
           android:title="Sign out"
           app:showAsAction="ifRoom"/>
