@@ -1,0 +1,9 @@
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\ChatLogActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\LoginActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\NewMessageActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\QRGeneratorActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\QRHomeActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\QRReaderActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\RecentMessagesActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\RegistrationActivity.kt
+C:\Users\hkhai\source\repos\Mobile_Software_Dev\InstantMessengerTesting\app\src\main\java\com\example\mdinh\instantmessengertesting\ScanQRCodeActivity.kt
