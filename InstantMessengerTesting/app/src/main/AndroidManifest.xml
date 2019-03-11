@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.mdinh.instantmessengertesting">
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
-
-    <uses-permission android:name="android.permission.CAMERA"/>
-
-    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
-=======
->>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
-=======
->>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 
     <application
             android:allowBackup="true"
@@ -28,18 +16,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         <activity android:name=".ScanQRCodeActivity">
 
-        </activity>
-=======
->>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
-=======
->>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
-        <activity android:name=".QRReaderActivity">
-        </activity>
-        <activity android:name=".QRGeneratorActivity">
         </activity>
         <activity android:name=".QRHomeActivity">
         </activity>
@@ -70,19 +49,9 @@
         <activity android:name=".LoginActivity">
         </activity>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         <meta-data
                 android:name="com.google.android.gms.vision.DEPENDENCIES"
                 android:value="barcode"/>
-=======
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
-                   android:value="barcode"/>
->>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
-=======
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
-                   android:value="barcode"/>
->>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
     </application>
 
 </manifest>
