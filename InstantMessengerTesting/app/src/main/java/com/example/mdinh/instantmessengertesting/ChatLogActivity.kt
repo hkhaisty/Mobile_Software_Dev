@@ -11,7 +11,6 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
@@ -22,14 +21,13 @@ import kotlinx.android.synthetic.main.sent_messages_display.view.*
 class ChatLogActivity : AppCompatActivity() {
 
     val chatlog_adapter = GroupAdapter<ViewHolder>()
-    var user_receiver: UserAccount? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_log)
 
-        user_receiver = intent.getParcelableExtra<UserAccount>(NewMessageActivity.USER_KEY)
-        supportActionBar?.title = user_receiver?.username
+        val user_data = intent.getParcelableExtra<UserAccount>(NewMessageActivity.USER_KEY)
+        supportActionBar?.title = user_data.username
 
         chatdisplayChatLog_recyclerview.adapter = chatlog_adapter
 
@@ -57,11 +55,10 @@ class ChatLogActivity : AppCompatActivity() {
                     Log.d("ChatLogActivity", chatMessage.message)
 
                     if(chatMessage.sender_id == FirebaseAuth.getInstance().uid) {
-                        val logged_user = RecentMessagesActivity.logged_user
-                        chatlog_adapter.add(SenderChatItem(chatMessage.message, logged_user!!))
+                        chatlog_adapter.add(SentChatItem(chatMessage.message))
                     }
                     else {
-                        chatlog_adapter.add(ReceiverChatItem(chatMessage.message, user_receiver!!))
+                        chatlog_adapter.add(ReceivedChatItem(chatMessage.message))
                     }
                 }
             }
@@ -107,14 +104,9 @@ class ChatLogActivity : AppCompatActivity() {
     }
 }
 
-class ReceiverChatItem(val text: String, val user_data: UserAccount): Item<ViewHolder>() {
+class ReceivedChatItem(val text: String): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.received_message_textview.text = text
-
-        val uri = user_data.profileImageUrl
-        val imageview = viewHolder.itemView.receiver_image_imageview
-
-        Picasso.get().load(uri).into(imageview)
     }
 
     override fun getLayout(): Int {
@@ -122,14 +114,9 @@ class ReceiverChatItem(val text: String, val user_data: UserAccount): Item<ViewH
     }
 }
 
-class SenderChatItem(val text: String, val user_data: UserAccount): Item<ViewHolder>() {
+class SentChatItem(val text: String): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.sent_message_textview.text = text
-
-        val uri = user_data.profileImageUrl
-        val imageview = viewHolder.itemView.sender_image_imageview
-
-        Picasso.get().load(uri).into(imageview)
     }
 
     override fun getLayout(): Int {
