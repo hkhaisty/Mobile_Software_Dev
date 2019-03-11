@@ -47,7 +47,12 @@ dependencies {
 
     implementation 'com.xwray:groupie:2.1.0' //Group list for new message activity (OUTDATED)
     implementation 'com.squareup.picasso:picasso:2.71828'
+<<<<<<< HEAD
     implementation 'com.google.android.gms:play-services-vision:17.0.2'
+=======
+
+    implementation 'com.google.android.gms:play-services-vision:12.0.1'
+>>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 }
 apply plugin: 'com.google.gms.google-services'//Added from Firebase
 
