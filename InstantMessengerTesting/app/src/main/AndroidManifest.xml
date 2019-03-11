@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -15,6 +16,8 @@
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+=======
+>>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 =======
 >>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 
@@ -26,9 +29,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".ScanQRCodeActivity">
 
         </activity>
+=======
+>>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 =======
 >>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
         <activity android:name=".QRReaderActivity">
@@ -65,9 +71,14 @@
         </activity>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <meta-data
                 android:name="com.google.android.gms.vision.DEPENDENCIES"
                 android:value="barcode"/>
+=======
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
+                   android:value="barcode"/>
+>>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 =======
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
                    android:value="barcode"/>

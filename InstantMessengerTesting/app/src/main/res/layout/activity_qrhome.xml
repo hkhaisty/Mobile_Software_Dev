@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:background="@drawable/background"
         android:layout_height="match_parent"
         tools:context=".QRHomeActivity">
@@ -54,6 +55,11 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
             tools:context=".QRHomeActivity">
 
+=======
+        android:layout_height="match_parent"
+        tools:context=".QRHomeActivity">
+
+>>>>>>> 3ccaf4941388fb8c276d2f824421cb6514761da6
 =======
         android:layout_height="match_parent"
         tools:context=".QRHomeActivity">
