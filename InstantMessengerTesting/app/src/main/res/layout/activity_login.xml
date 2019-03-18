@@ -56,6 +56,6 @@
             android:textStyle="bold" android:textSize="16sp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/loginLogin_button"
             app:layout_constraintStart_toStartOf="@+id/loginLogin_button"
-            app:layout_constraintEnd_toEndOf="@+id/loginLogin_button" android:layout_marginBottom="498dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintEnd_toEndOf="@+id/loginLogin_button"
+    />
 </android.support.constraint.ConstraintLayout>
