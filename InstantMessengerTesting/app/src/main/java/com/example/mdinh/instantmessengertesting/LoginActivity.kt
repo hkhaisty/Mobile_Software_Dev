@@ -23,6 +23,10 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener {
                     if(it.isSuccessful) {
                         Log.d("LoginActivity", "Login Successful: ${it.result?.user?.uid}") //What does ?. mean?
+
+                        val intent =  Intent(this, RecentMessagesActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
                     }
                     else return@addOnCompleteListener
                 }

@@ -105,13 +105,11 @@ class RegistrationActivity : AppCompatActivity() {
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
 
-            //Changes that hasn't been uploaded to Git as of 2/27 MAKE SURE TO MAKE CHANGES TO XML
             //val bitmap_Drawable = BitmapDrawable(bitmap)
             //selectphotoRegistration_button.setBackgroundDrawable(bitmap_Drawable)
 
             selectphotoRegistration_CircleImageView.setImageBitmap(bitmap)
             selectphotoRegistration_button.alpha = 0f
-            //Changes that hasn't been uploaded to Git as of 2/27 MAKE SURE TO MAKE CHANGES TO XML
         }
     }
 
@@ -145,10 +143,11 @@ class RegistrationActivity : AppCompatActivity() {
     private fun userToFirebaseDatabase(profileImageUrl: String) {
         //Gets unique user id from Firebase
         val user_id = FirebaseAuth.getInstance().uid ?: ""
+
         val reference = FirebaseDatabase.getInstance().getReference("/users/$user_id")
 
         //Object for user account
-        val user_account = UserAccount(user_id, usernameRegistration_edittext.text.toString(), profileImageUrl)
+        val user_account = UserAccount(user_id, usernameRegistration_edittext.text.toString(), emailRegistration_edittext.text.toString(), profileImageUrl)
 
         reference.setValue(user_account)
             .addOnSuccessListener {
@@ -168,6 +167,6 @@ class RegistrationActivity : AppCompatActivity() {
 
 //User account class
 @Parcelize
-class UserAccount(val user_id: String, val username: String, val profileImageUrl: String) : Parcelable {
-    constructor() : this("", "", "")
+class UserAccount(val user_id: String, val username: String, val email_address: String, val profileImageUrl: String) : Parcelable {
+    constructor() : this("", "", "", "")
 }
