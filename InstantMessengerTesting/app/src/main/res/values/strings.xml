@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InstantMessengerTesting</string>
+    <string name="title_activity_email_search">EmailSearchActivity</string>
 </resources>

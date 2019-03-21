@@ -17,19 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".NewMessageActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".RecentMessagesActivity"/>
         </activity>
-        <!--CHANGES HAS NOT BEEN TRANSFERRED AS OF 3/7-->
         <activity android:name=".ChatLogActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".RecentMessagesActivity"/>
         </activity>
-        <!--CHANGES HAS NOT BEEN TRANSFERRED AS OF 3/7-->
         <activity android:name=".RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -40,6 +37,11 @@
         <activity android:name=".LoginActivity">
         </activity>
 
+        <activity
+                android:name=".EmailSearchActivity"
+                android:label="@string/title_activity_email_search"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

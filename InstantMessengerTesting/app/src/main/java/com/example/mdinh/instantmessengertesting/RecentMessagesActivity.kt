@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_recent_messages.*
 
 class RecentMessagesActivity : AppCompatActivity() {
     companion object {
@@ -25,6 +26,12 @@ class RecentMessagesActivity : AppCompatActivity() {
 
         fetchLoggeduser()
         loginVerification()
+
+        tempsearch_button.setOnClickListener {
+            val intent = Intent(this, EmailSearchActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun fetchLoggeduser() {
