@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--CHANGES MADE THAT HASN'T BEEN UPDATED TO GIT 3/4-->
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -17,4 +16,3 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
     />
 </android.support.constraint.ConstraintLayout>
-        <!--CHANGES MADE THAT HASN'T BEEN UPDATED TO GIT 3/4-->

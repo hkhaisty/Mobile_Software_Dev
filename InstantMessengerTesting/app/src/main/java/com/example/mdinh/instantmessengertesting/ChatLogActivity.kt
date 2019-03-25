@@ -47,7 +47,9 @@ class ChatLogActivity : AppCompatActivity() {
     }
 
     private fun messageListener() {
-        val reference = FirebaseDatabase.getInstance().getReference("/messages")
+        val sender_id = FirebaseAuth.getInstance().uid
+        val receiver_id = user_receiver?.user_id
+        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$sender_id/$receiver_id")
 
         reference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
@@ -95,15 +97,20 @@ class ChatLogActivity : AppCompatActivity() {
 
         if(sender_id == null) return
 
-        val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
+        //val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
+        val sending_reference = FirebaseDatabase.getInstance().getReference("/user-messages/$sender_id/$receiver_id").push()
+        val receiving_reference = FirebaseDatabase.getInstance().getReference("/user-messages/$receiver_id/$sender_id").push()
 
-        val chatMessage = ChatMessage(reference.key!!, message, sender_id, receiver_id, System.currentTimeMillis()/1000)
+        val chatMessage = ChatMessage(sending_reference.key!!, message, sender_id, receiver_id, System.currentTimeMillis()/1000)
         //14:56 ep6
-        reference.setValue(chatMessage)
+        sending_reference.setValue(chatMessage)
             .addOnSuccessListener {
-                Log.d("ChatLogActivity", "Saved message: ${reference.key}")
+                Log.d("ChatLogActivity", "Saved message: ${sending_reference.key}")
                 Log.d("ChatLogActivity", "Sender ID: ${FirebaseAuth.getInstance().uid}, Receiver ID: ${user_data.user_id}")
+                messageinputChatLog_edittext.text.clear()
+                chatdisplayChatLog_recyclerview.scrollToPosition(chatlog_adapter.itemCount - 1)
             }
+        receiving_reference.setValue(chatMessage)
     }
 }
 

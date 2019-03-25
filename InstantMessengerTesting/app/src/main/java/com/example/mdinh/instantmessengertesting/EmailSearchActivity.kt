@@ -8,13 +8,18 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 
 import kotlinx.android.synthetic.main.activity_email_search.*
-import kotlinx.android.synthetic.main.activity_new_message.*
+import kotlinx.android.synthetic.main.user_row_emailsearch.view.*
 
 class EmailSearchActivity : AppCompatActivity() {
+    companion object {
+        val USER_KEY = "USER KEY"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +47,10 @@ class EmailSearchActivity : AppCompatActivity() {
                     //Log.d("EmailSearchActivity", it.toString())
                     val user_data = it.getValue(UserAccount::class.java)
 
-                    if(user_data != null && searchbar_edittext.text.toString().equals(user_data.email_address)) {
+                    if(user_data != null && user_data.email_address.startsWith(searchbar_edittext.text.toString())) {
                         //Log.d("EmailSearchActivity", "email match")
                         Log.d("EmailSearchActivity", user_data.username + " has email: " + searchbar_edittext.text.toString())
-                        group_adapter.add(UserItem(user_data))
+                        group_adapter.add(SearchUserItem(user_data))
                     }
                     else {
                         Log.d("EmailSearchActivity", "no match")
@@ -53,11 +58,10 @@ class EmailSearchActivity : AppCompatActivity() {
                 }
 
                 group_adapter.setOnItemClickListener { item, view ->
-                    val user_item = item as UserItem
+                    val user_item = item as SearchUserItem
 
                     val intent = Intent(view.context, ChatLogActivity::class.java)
-                    //intent.putExtra(USER_KEY, user_item.user_data.username)
-                    intent.putExtra(NewMessageActivity.USER_KEY, user_item.user_data)
+                    intent.putExtra(USER_KEY, user_item.user_data)
                     startActivity(intent)
 
                     finish()
@@ -69,6 +73,19 @@ class EmailSearchActivity : AppCompatActivity() {
 
             }
         })
+    }
+}
+
+class SearchUserItem(val user_data: UserAccount): Item<ViewHolder>() {
+    override fun bind(viewHolder: ViewHolder, position: Int) {
+        viewHolder.itemView.emailEmailSearch_textview.text = user_data.email_address
+        viewHolder.itemView.usernameEmailSearch_textview.text = user_data.username
+
+        Picasso.get().load(user_data.profileImageUrl).into(viewHolder.itemView.profilepictureEmailSearch_imageview)
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.user_row_emailsearch
     }
 }
 

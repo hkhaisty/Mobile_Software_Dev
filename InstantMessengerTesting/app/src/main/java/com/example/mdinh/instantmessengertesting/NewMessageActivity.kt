@@ -38,15 +38,14 @@ class NewMessageActivity : AppCompatActivity() {
                     Log.d("NewMessageActivity", it.toString())
                     val user_data = it.getValue(UserAccount::class.java)
                     if(user_data != null) {
-                        group_adapter.add(UserItem(user_data))
+                        group_adapter.add(NewMessageUserItem(user_data))
                     }
                 }
                 //when a user is selected from the group adapter, ChatLogActivity will start
                 group_adapter.setOnItemClickListener { item, view ->
-                    val user_item = item as UserItem
+                    val user_item = item as NewMessageUserItem
 
                     val intent = Intent(view.context, ChatLogActivity::class.java)
-                    //intent.putExtra(USER_KEY, user_item.user_data.username)
                     intent.putExtra(USER_KEY, user_item.user_data)
                     startActivity(intent)
 
@@ -67,7 +66,7 @@ class NewMessageActivity : AppCompatActivity() {
     }
 }
 
-class UserItem(val user_data: UserAccount): Item<ViewHolder>() {
+class NewMessageUserItem(val user_data: UserAccount): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.usernameNewMessage_textview.text = user_data.username
 
