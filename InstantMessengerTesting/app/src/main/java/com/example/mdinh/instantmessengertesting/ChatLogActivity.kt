@@ -102,7 +102,7 @@ class ChatLogActivity : AppCompatActivity() {
         val receiving_reference = FirebaseDatabase.getInstance().getReference("/user-messages/$receiver_id/$sender_id").push()
 
         val chatMessage = ChatMessage(sending_reference.key!!, message, sender_id, receiver_id, System.currentTimeMillis()/1000)
-        //14:56 ep6
+
         sending_reference.setValue(chatMessage)
             .addOnSuccessListener {
                 Log.d("ChatLogActivity", "Saved message: ${sending_reference.key}")
@@ -110,7 +110,15 @@ class ChatLogActivity : AppCompatActivity() {
                 messageinputChatLog_edittext.text.clear()
                 chatdisplayChatLog_recyclerview.scrollToPosition(chatlog_adapter.itemCount - 1)
             }
+
         receiving_reference.setValue(chatMessage)
+
+        //for displaying the latest message in RecentMessagesActivity
+        val senders_lastmessage_reference = FirebaseDatabase.getInstance().getReference("/last-message/$sender_id/$receiver_id")
+        senders_lastmessage_reference.setValue(chatMessage)
+
+        val receivers_lastmessage_reference = FirebaseDatabase.getInstance().getReference("/last-message/$receiver_id/$sender_id")
+        receivers_lastmessage_reference.setValue(chatMessage)
     }
 }
 
