@@ -5,7 +5,7 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="120dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="64dp"
             android:layout_height="64dp" app:srcCompat="@drawable/cmaillogo"
             android:id="@+id/profileimagedisplay_imageview"
@@ -14,6 +14,7 @@
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:text="username"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/usernamedisplay_textview" app:layout_constraintStart_toEndOf="@+id/profileimagedisplay_imageview"
