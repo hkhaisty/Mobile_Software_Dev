@@ -9,7 +9,16 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
+        <activity
+                android:name=".SearchedProfilePageActivity"
+                android:label="@string/title_activity_searched_profile_page"
+                android:theme="@style/NoActionBar">
+        </activity>
+        <activity
+                android:name=".ProfilePageActivity"
+                android:label="@string/title_activity_profile_page_acivity"
+                android:theme="@style/NoActionBar">
+        </activity>
         <activity android:name=".RecentMessagesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -36,7 +45,6 @@
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
-
         <activity
                 android:name=".EmailSearchActivity"
                 android:label="@string/title_activity_email_search"

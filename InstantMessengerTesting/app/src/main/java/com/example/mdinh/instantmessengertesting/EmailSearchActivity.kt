@@ -60,7 +60,8 @@ class EmailSearchActivity : AppCompatActivity() {
                 group_adapter.setOnItemClickListener { item, view ->
                     val user_item = item as SearchUserItem
 
-                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    //val intent = Intent(view.context, ChatLogActivity::class.java)
+                    val intent = Intent(view.context, SearchedProfilePageActivity::class.java)
                     intent.putExtra(USER_KEY, user_item.user_data)
                     startActivity(intent)
 
@@ -70,7 +71,6 @@ class EmailSearchActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(p0: DatabaseError) {
-
             }
         })
     }

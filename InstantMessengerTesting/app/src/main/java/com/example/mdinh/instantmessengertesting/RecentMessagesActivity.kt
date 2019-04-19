@@ -1,5 +1,6 @@
 package com.example.mdinh.instantmessengertesting
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -53,12 +54,14 @@ class RecentMessagesActivity : AppCompatActivity() {
 
         supportActionBar?.title = ""
 
-
+        showToolbar()
         recentmessagesListener()
         fetchLoggeduser()
         loginVerification()
 
+    }
 
+    private fun showToolbar() {
         val toolbar: Toolbar = findViewById(R.id.sidemenu_toolbar)
         setSupportActionBar(toolbar)
         val actionbar: ActionBar? = supportActionBar
@@ -83,7 +86,7 @@ class RecentMessagesActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.nav_profile -> {
-                    //val intent = Intent(this, )
+                    //val intent = Intent(this, UserProfileActivity::class.java)
                     Log.d("RecentMessagesActivity", "navigating...")
                     //startActivity(intent)
                 }
@@ -146,10 +149,11 @@ class RecentMessagesActivity : AppCompatActivity() {
         val reference = FirebaseDatabase.getInstance().getReference("/users/$user_id")
 
         reference.addListenerForSingleValueEvent(object: ValueEventListener {
+            @SuppressLint("SetTextI18n")
             override fun onDataChange(p0: DataSnapshot) {
                 logged_user = p0.getValue(UserAccount::class.java)
                 Log.d("RecentMessagesActivity", "Current user: ${logged_user?.username}")
-                sidemenuheader_textview.setText("Hello, " + logged_user?.username)
+                sidemenuheader_textview.text = "Hello, " + logged_user?.username
             }
 
             override fun onCancelled(p0: DatabaseError) {
@@ -181,24 +185,11 @@ class RecentMessagesActivity : AppCompatActivity() {
             android.R.id.home -> {
                 drawerLayout.openDrawer(GravityCompat.START)
             }
-            ///////////////////////////////////////////////
             R.id.newmessage_menu -> {
-                //CHANGES MADE THAT HASN'T BEEN UPDATED TO GIT 3/4
-                val intent = Intent(this, NewMessageActivity::class.java)
+                val intent = Intent(this, EmailSearchActivity::class.java)
                 startActivity(intent)
-                //CHANGES MADE THAT HASN'T BEEN UPDATED TO GIT 3/4
             }
-            //When user clicks on SIGN OUT from the navigation task bar, the user will be logged out and returned to registration screen.
-            //May need to be changed to login screen.
-            /*R.id.signout_menu -> {
-                FirebaseAuth.getInstance().signOut()
-
-                val intent = Intent(this, RegistrationActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }*/
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -226,14 +217,11 @@ class RecentMessagesActivity : AppCompatActivity() {
 
                     viewHolder.itemView.usernamedisplay_textview.text = chat_partner?.username
                     Picasso.get().load(chat_partner?.profileImageUrl).into(viewHolder.itemView.profileimagedisplay_imageview)
-                    //viewHolder.itemView.profileimagedisplay_imageview = receiving_user?.profileImageUrl
                 }
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
-
-            //viewHolder.itemView.usernamedisplay_textview.text = message.receiver_id
             viewHolder.itemView.lastmessagedisplay_textview.text = message.message
         }
     }
