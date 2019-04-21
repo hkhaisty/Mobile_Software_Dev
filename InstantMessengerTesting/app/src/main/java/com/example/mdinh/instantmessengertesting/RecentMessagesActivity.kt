@@ -59,6 +59,17 @@ class RecentMessagesActivity : AppCompatActivity() {
         fetchLoggeduser()
         loginVerification()
 
+        //REMOVE WHEN MENU GETS FIXED
+        tempfriendlist_button.setOnClickListener {
+            val intent = Intent(this, NewMessageActivity::class.java)
+            startActivity(intent)
+        }
+
+        tempsearch_button.setOnClickListener {
+            val intent = Intent(this, EmailSearchActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun showToolbar() {
