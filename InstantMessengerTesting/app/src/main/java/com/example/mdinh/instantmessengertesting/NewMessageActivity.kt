@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -24,7 +25,43 @@ class NewMessageActivity : AppCompatActivity() {
         //Set the title of the action bar
         supportActionBar?.title = "Select User"
 
-        fetchUsersFromDataBase()
+        //fetchUsersFromDataBase()
+        fetchFriends()
+
+    }
+
+    private fun fetchFriends() {
+        val user_id = FirebaseAuth.getInstance().uid
+
+        val reference = FirebaseDatabase.getInstance().getReference("/user-friends/$user_id")
+        reference.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                val group_adapter = GroupAdapter<ViewHolder>()
+
+                p0.children.forEach {
+                    val friend = it.getValue(UserAccount::class.java)
+                    if(friend != null) {
+                        group_adapter.add(NewMessageUserItem(friend))
+                        Log.d("NewMessageActivity", "LOOK HERE: "+ friend.username)
+                    }
+                }
+
+                group_adapter.setOnItemClickListener { item, view ->
+                    val user_item = item as NewMessageUserItem
+
+                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY, user_item.user_data)
+                    startActivity(intent)
+
+                    finish()
+                }
+                newmessage_recyclerview.adapter = group_adapter
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
     }
 
     //Retrieves user data from the database and displays them in the recycler view

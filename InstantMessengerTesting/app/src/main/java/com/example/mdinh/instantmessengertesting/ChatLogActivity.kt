@@ -50,6 +50,7 @@ class ChatLogActivity : AppCompatActivity() {
     private fun messageListener() {
         val sender_id = FirebaseAuth.getInstance().uid
         val receiver_id = user_receiver?.user_id
+
         val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$sender_id/$receiver_id")
 
         reference.addChildEventListener(object: ChildEventListener {
