@@ -2,6 +2,7 @@ package com.example.mdinh.instantmessengertesting
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -52,7 +53,8 @@ class RecentMessagesActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        supportActionBar?.title = ""
+
+        this.title = "CMail"
 
         showToolbar()
         recentmessagesListener()
@@ -184,10 +186,6 @@ class RecentMessagesActivity : AppCompatActivity() {
             //Drawer Button
             android.R.id.home -> {
                 drawerLayout.openDrawer(GravityCompat.START)
-            }
-            R.id.newmessage_menu -> {
-                val intent = Intent(this, EmailSearchActivity::class.java)
-                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

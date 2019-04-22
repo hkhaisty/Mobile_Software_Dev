@@ -31,7 +31,7 @@ class SearchedProfilePageActivity : AppCompatActivity() {
         /*val reference = FirebaseDatabase.getInstance().getReference("/user-friends/$sender_id").push()
         reference.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                if(p0.exists()) {
+                if(p0.hasChild("user_id")) {
                     Log.d("Friend", "EXISTS!!!!!")
                     addfriendSearchedProfile_button.setEnabled(false)
                     addfriendSearchedProfile_button.text = "Friend"
