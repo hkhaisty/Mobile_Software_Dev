@@ -97,14 +97,14 @@ class RecentMessagesActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.nav_profile -> {
-                    //val intent = Intent(this, UserProfileActivity::class.java)
+                    val intent = Intent(this, ProfilePageActivity::class.java)
                     Log.d("RecentMessagesActivity", "navigating...")
-                    //startActivity(intent)
+                    startActivity(intent)
                 }
                 R.id.nav_friends -> {
-                    //val intent = Intent(this, )
+                    val intent = Intent(this, NewMessageActivity::class.java)
                     Log.d("RecentMessagesActivity", "navigating...")
-                    //startActivity(intent)
+                    startActivity(intent)
                 }
                 R.id.nav_signout -> {
                     FirebaseAuth.getInstance().signOut()

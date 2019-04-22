@@ -24,7 +24,7 @@ class SearchedProfilePageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_searched_profile_page)
 
-        val sender_id = FirebaseAuth.getInstance().uid
+        //val sender_id = FirebaseAuth.getInstance().uid
 
         user_receiver = intent.getParcelableExtra<UserAccount>(EmailSearchActivity.USER_KEY)
 
@@ -69,6 +69,8 @@ class SearchedProfilePageActivity : AppCompatActivity() {
 
         sending_reference.setValue(receiver!!)
         receiving_reference.setValue(RecentMessagesActivity.logged_user!!)
+
+        finish()
     }
 }
 
