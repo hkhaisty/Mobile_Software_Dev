@@ -23,8 +23,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/recentmessages_recyclerview"
-                app:layout_constraintTop_toBottomOf="@+id/sidemenu_toolbar" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/tempfriendlist_button"/>
+                app:layout_constraintTop_toBottomOf="@+id/sidemenu_toolbar"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         <android.support.v7.widget.Toolbar
                 android:id="@+id/sidemenu_toolbar"
@@ -33,18 +33,6 @@
                 android:background="@android:color/holo_orange_dark"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"/>
-
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@+id/tempfriendlist_button"
-                app:layout_constraintBottom_toBottomOf="@+id/tempfriendlist_button"
-                app:layout_constraintStart_toEndOf="@+id/tempfriendlist_button" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" android:id="@+id/tempsearch_button" android:text="search for users"/>
-
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:id="@+id/tempfriendlist_button"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent" android:text="friends"/>
 
     </android.support.constraint.ConstraintLayout>
 
