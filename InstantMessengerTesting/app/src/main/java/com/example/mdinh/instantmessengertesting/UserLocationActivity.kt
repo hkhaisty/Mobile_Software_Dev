@@ -50,7 +50,7 @@ class UserLocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val home = LatLng(33.937561, -84.520146)
         mMap.addMarker(MarkerOptions().position(home).title("Your Location"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 10.2f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 15.2f))
 
     }
 }

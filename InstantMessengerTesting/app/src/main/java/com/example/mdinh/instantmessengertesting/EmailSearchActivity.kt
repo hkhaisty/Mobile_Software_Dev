@@ -25,8 +25,10 @@ class EmailSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_search)
 
-        val ss: String = intent.getStringExtra("ScannerText")
-
+        val feedString: String = intent.getStringExtra("ScannerText")
+        if (feedString != null){
+            searchbar_edittext.setText(feedString)
+        }
 
         searchbutton_button.setOnClickListener {
             if (!searchbar_edittext.text.isEmpty()) {
@@ -49,6 +51,7 @@ class EmailSearchActivity : AppCompatActivity() {
                     val user_data = it.getValue(UserAccount::class.java)
 
                     if (user_data != null && user_data.email_address.startsWith(searchbar_edittext.text.toString())) {
+                        //Log.d("EmailSearchActivity", "email match")
                         Log.d(
                             "EmailSearchActivity",
                             user_data.username + " has email: " + searchbar_edittext.text.toString()
@@ -62,6 +65,7 @@ class EmailSearchActivity : AppCompatActivity() {
                 group_adapter.setOnItemClickListener { item, view ->
                     val user_item = item as SearchUserItem
 
+                    //val intent = Intent(view.context, ChatLogActivity::class.java)
                     val intent = Intent(view.context, SearchedProfilePageActivity::class.java)
                     intent.putExtra(USER_KEY, user_item.user_data)
                     startActivity(intent)
