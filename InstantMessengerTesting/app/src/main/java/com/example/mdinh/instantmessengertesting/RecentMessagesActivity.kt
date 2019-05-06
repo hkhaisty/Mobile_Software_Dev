@@ -104,6 +104,18 @@ class RecentMessagesActivity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
+
+                R.id.make_QR ->{
+                    val intent = Intent(this, QRGenerator::class.java)
+                    Log.d("RecentMessagesActivity", "navigating...")
+                    startActivity(intent)
+                }
+
+                R.id.scan_QR -> {
+                    val intent = Intent(this, QRScanner::class.java)
+                    Log.d("RecentMessagesActivity", "navigating...")
+                    startActivity(intent)
+                }
             }
             true
         }

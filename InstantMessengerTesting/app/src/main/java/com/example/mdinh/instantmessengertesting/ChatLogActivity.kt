@@ -3,9 +3,6 @@ package com.example.mdinh.instantmessengertesting
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.mdinh.instantmessengertesting.NewMessageActivity
-import com.example.mdinh.instantmessengertesting.R
-import com.example.mdinh.instantmessengertesting.UserAccount
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -16,7 +13,6 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_log.*
-import kotlinx.android.synthetic.main.activity_recent_messages.*
 import kotlinx.android.synthetic.main.received_messages_display.view.*
 import kotlinx.android.synthetic.main.sent_messages_display.view.*
 

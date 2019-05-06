@@ -25,11 +25,13 @@ class EmailSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_search)
 
+        val ss: String = intent.getStringExtra("ScannerText")
+
+
         searchbutton_button.setOnClickListener {
-            if(!searchbar_edittext.text.isEmpty()) {
+            if (!searchbar_edittext.text.isEmpty()) {
                 SearchEmailFromDatabase()
-            }
-            else {
+            } else {
                 Log.d("EmailSearchActivity", "search bar empty")
             }
             Log.d("EmailSearchActivity", "search button clicked")
@@ -39,20 +41,20 @@ class EmailSearchActivity : AppCompatActivity() {
     private fun SearchEmailFromDatabase() {
         val reference = FirebaseDatabase.getInstance().getReference("/users")
 
-        reference.addListenerForSingleValueEvent(object: ValueEventListener {
+        reference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 val group_adapter = GroupAdapter<ViewHolder>()
 
                 p0.children.forEach {
-                    //Log.d("EmailSearchActivity", it.toString())
                     val user_data = it.getValue(UserAccount::class.java)
 
-                    if(user_data != null && user_data.email_address.startsWith(searchbar_edittext.text.toString())) {
-                        //Log.d("EmailSearchActivity", "email match")
-                        Log.d("EmailSearchActivity", user_data.username + " has email: " + searchbar_edittext.text.toString())
+                    if (user_data != null && user_data.email_address.startsWith(searchbar_edittext.text.toString())) {
+                        Log.d(
+                            "EmailSearchActivity",
+                            user_data.username + " has email: " + searchbar_edittext.text.toString()
+                        )
                         group_adapter.add(SearchUserItem(user_data))
-                    }
-                    else {
+                    } else {
                         Log.d("EmailSearchActivity", "no match")
                     }
                 }
@@ -60,7 +62,6 @@ class EmailSearchActivity : AppCompatActivity() {
                 group_adapter.setOnItemClickListener { item, view ->
                     val user_item = item as SearchUserItem
 
-                    //val intent = Intent(view.context, ChatLogActivity::class.java)
                     val intent = Intent(view.context, SearchedProfilePageActivity::class.java)
                     intent.putExtra(USER_KEY, user_item.user_data)
                     startActivity(intent)
@@ -76,7 +77,7 @@ class EmailSearchActivity : AppCompatActivity() {
     }
 }
 
-class SearchUserItem(val user_data: UserAccount): Item<ViewHolder>() {
+class SearchUserItem(val user_data: UserAccount) : Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.emailEmailSearch_textview.text = user_data.email_address
         viewHolder.itemView.usernameEmailSearch_textview.text = user_data.username
