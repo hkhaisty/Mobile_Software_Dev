@@ -116,6 +116,12 @@ class RecentMessagesActivity : AppCompatActivity() {
                     Log.d("RecentMessagesActivity", "navigating...")
                     startActivity(intent)
                 }
+
+                R.id.my_location -> {
+                    val intent = Intent(this, UserLocationActivity::class.java)
+                    Log.d("RecentMessagesActivity", "navigating...")
+                    startActivity(intent)
+                }
             }
             true
         }

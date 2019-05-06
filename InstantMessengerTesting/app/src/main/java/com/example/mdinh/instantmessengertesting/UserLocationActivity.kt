@@ -1,5 +1,9 @@
 package com.example.mdinh.instantmessengertesting
 
+import android.content.Context
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -13,6 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class UserLocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private var locationManager: LocationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +25,16 @@ class UserLocationActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
+//        locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0L, 0f, locationListener)
     }
+
+//    private val locationListener: LocationListener = object : LocationListener{
+//        override fun onLocationChanged(location: Location?) {
+//            thetext.setText("" + location.longitude + ":" +_ location.latitude);
+//        }
+//    }
 
     /**
      * Manipulates the map once available.
@@ -34,8 +48,9 @@ class UserLocationActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val home = LatLng(33.937561, -84.520146)
+        mMap.addMarker(MarkerOptions().position(home).title("Your Location"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 10.2f))
+
     }
 }

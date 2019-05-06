@@ -34,7 +34,7 @@
         -->
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
-                android:value="@string/google_maps_key"/>
+                android:value="AIzaSyAxV6AoHY-bFgRdN_kF79gT5n-MOhegf5Y"/>
 
         <activity android:name=".QRGenerator"
                   android:label="@string/title_activity_qr_generator">

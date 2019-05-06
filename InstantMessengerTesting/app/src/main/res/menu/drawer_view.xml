@@ -18,6 +18,9 @@
                 android:id="@+id/scan_QR"
                 android:title="Scan QR Code" />
         <item
+                android:id="@+id/my_location"
+                android:title="Chat Map" />
+        <item
                 android:id="@+id/nav_signout"
                 android:title="Sign Out" />
     </group>
